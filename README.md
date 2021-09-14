@@ -8,10 +8,10 @@ hope you play happy
 
 If there is no other reason not to update
 
-仓库已经合并到 https://github.com/huige233/liftresartnon 之中
+仓库已经合并到 https://github.com/Rudyy898/liftresartnon 之中
 
 限制版本已经移除
 
-xp版本  https://huige233.github.io/liftresartnon/lifeRestart_xp/view/
+xp版本  https://rudyy898.github.io/liftresartnon/lifeRestart_xp/view/
 
-non版本  https://huige233.github.io/liftresartnon/lifeRestart_other/view/
+non版本  https://rudyy898.github.io/liftresartnon/lifeRestart_other/view/
