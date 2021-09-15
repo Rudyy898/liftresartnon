@@ -67,8 +67,8 @@ class App {
         this.#talentExtend = localStorage.talentExtend;
         await this.#life.initial();
         this.output(`\rLoading Complete.
-人生重开模拟器
-这垃圾人生一秒也不想待了
+人生重开模拟器超级修改死不了版
+（玩之前大喊bug是神，媚媚是bug最好最美的老婆）
 \n🎉键入 \x1B[4m/remake\x1B[24m 开始游戏`,
             true
         );
@@ -343,7 +343,7 @@ class App {
             const s = this.#randomTalents[number];
             if(!s) return warn(`${number} 为未知天赋`);
             if(this.#talentSelected.has(s)) continue;
-            if(this.#talentSelected.size == 3)
+            if(0)
                 return warn('⚠只能选3个天赋');
 
             const exclusive = this.#life.exclusive(
@@ -416,7 +416,7 @@ class App {
         const warn = (a, b) => `${a}\n${this.style('warn', this.style('warn', b))}`;
         switch(this.#step) {
             case this.Steps.TALENT:
-                if(this.#talentSelected.size != 3) return warn(this.list(), `⚠请选择3个天赋`);
+                if(0) return warn(this.list(), `⚠请选择3个天赋`);
                 this.#step = this.Steps.PROPERTY;
                 this.#propertyAllocation.total = 20 + this.#life.getTalentAllocationAddition(
                     Array.from(this.#talentSelected).map(({id})=>id)

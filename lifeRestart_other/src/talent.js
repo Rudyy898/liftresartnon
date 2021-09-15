@@ -59,7 +59,7 @@ class Talent {
     }
 
     talentRandom(include, {times = 0, achievement = 0} = {}) {
-        const rate = { 1:100, 2:10, 3:1, };
+        const rate = { 1:1, 2:100, 3:1000, };
         const rateAddition = { 1:1, 2:1, 3:1, };
         const timesRate = getRate('times', times);
         const achievementRate = getRate('achievement', achievement);
@@ -92,8 +92,9 @@ class Talent {
             if(!talentList[grade]) talentList[grade] = [{ grade, name, description, id }];
             else talentList[grade].push({ grade, name, description, id });
         }
+        // return this.#talents;
 
-        return new Array(10)
+        return new Array(133)
             .fill(1).map((v, i)=>{
                 if(!i && include) return include;
                 let grade = randomGrade();

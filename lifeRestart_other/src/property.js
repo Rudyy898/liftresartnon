@@ -249,7 +249,6 @@ class Property {
     }
 
     change(prop, value) {
-        console('....',prop,value);
         if(Array.isArray(value)) {
             for(const v of value)
                 this.change(prop, Number(v));
@@ -257,6 +256,9 @@ class Property {
         }
         switch(prop) {
             case this.TYPES.AGE:
+                this.#data[prop] = (this.#data[prop] + Number(value))<0?0:this.#data[prop] + Number(value);
+                this.hl(prop, this.#data[prop]);
+                return;
             case this.TYPES.CHR:
             case this.TYPES.INT:
             case this.TYPES.STR:
@@ -307,8 +309,6 @@ class Property {
     ageNext() {
         this.change(this.TYPES.AGE, 1);
         const age = this.get(this.TYPES.AGE);
-        if(age+'0'<0)
-        {const age = '1'}
         const {event, talent} = this.getAgeData(age);
         return {age, event, talent};
     }
