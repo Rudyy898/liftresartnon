@@ -152,6 +152,7 @@ class Property {
     ageNext() {
         this.change(this.TYPES.AGE, 1);
         const age = this.get(this.TYPES.AGE);
+        if(!age) throw new Error(`[ERROR] No Event[${age}]`);
         const {event, talent} = this.getAgeData(age);
         return {age, event, talent};
     }

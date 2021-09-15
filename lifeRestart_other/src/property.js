@@ -101,7 +101,7 @@ class Property {
             [this.TYPES.TLT]: [],
             [this.TYPES.EVT]: [],
 
-            [this.TYPES.LAGE]: Infinity,
+            [this.TYPES.LAGE]: 0,
             [this.TYPES.LCHR]: Infinity,
             [this.TYPES.LINT]: Infinity,
             [this.TYPES.LSTR]: Infinity,
@@ -120,7 +120,7 @@ class Property {
     }
 
     restartLastStep() {
-        this.#data[this.TYPES.LAGE] = this.get(this.TYPES.AGE);
+        this.#data[this.TYPES.LAGE] = 0;
         this.#data[this.TYPES.LCHR] = this.get(this.TYPES.CHR);
         this.#data[this.TYPES.LINT] = this.get(this.TYPES.INT);
         this.#data[this.TYPES.LSTR] = this.get(this.TYPES.STR);
@@ -249,10 +249,11 @@ class Property {
     }
 
     change(prop, value) {
+        console('....',prop,value);
         if(Array.isArray(value)) {
             for(const v of value)
                 this.change(prop, Number(v));
-            return;
+            return
         }
         switch(prop) {
             case this.TYPES.AGE:
@@ -306,6 +307,8 @@ class Property {
     ageNext() {
         this.change(this.TYPES.AGE, 1);
         const age = this.get(this.TYPES.AGE);
+        if(age+'0'<0)
+        {const age = '1'}
         const {event, talent} = this.getAgeData(age);
         return {age, event, talent};
     }
